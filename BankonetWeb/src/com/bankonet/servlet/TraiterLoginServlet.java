@@ -62,20 +62,18 @@ public class TraiterLoginServlet extends HttpServlet {
 		
         BanqueService banqueService = BanqueServiceManager.getBanqueService();
         try {
-			Client c = banqueService.findClient(login, password);
+			Client client = banqueService.findClient(login, password);
 			
 			//System.out.println("Client authentifié : "+c.getNom()+" "+c.getPrenom());
 			
 			HttpSession session = request.getSession(true); 
 			
-			session.setAttribute( "Client", c);
+			session.setAttribute( "client", client);
 			
 				
-				session.setAttribute("compteEpargne",c.getCompteEpargneList().isEmpty());
-			
-			
-			session.setAttribute( "nom", c.getNom());
-			session.setAttribute( "prenom", c.getPrenom());
+			session.setAttribute("compteEpargne",client.getCompteEpargneList().isEmpty());
+			session.setAttribute( "nom", client.getNom());
+			session.setAttribute( "prenom", client.getPrenom());
 			response.sendRedirect(request.getContextPath()+"/pagePrincipale.jsp");
 			
 			
@@ -83,6 +81,7 @@ public class TraiterLoginServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("Connexion Impossible");
+			response.sendRedirect(request.getContextPath()+"/erreur.jsp");
 		}
 
 	}
