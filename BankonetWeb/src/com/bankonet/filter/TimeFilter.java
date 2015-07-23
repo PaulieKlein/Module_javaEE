@@ -27,6 +27,7 @@ public class TimeFilter implements Filter {
 		chain.doFilter(req, resp);
 		long timeAfter = System.currentTimeMillis() - timeBefore;
 		System.out.println("Le temps passé sur le servlet est de " + timeAfter +" ms" );
+		//System.out.println(((HttpServletRequest) request).getRequestURL());
 	}
 
 	@Override

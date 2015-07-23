@@ -3,16 +3,10 @@ package com.bankonet.servlet;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.bankonet.model.BankonetException;
-import com.bankonet.model.Client;
-import com.bankonet.service.BanqueService;
-import com.bankonet.service.BanqueServiceManager;
 
 /**
  * Servlet implementation class CompteCourantListeServlet

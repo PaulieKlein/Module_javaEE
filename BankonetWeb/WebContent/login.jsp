@@ -19,7 +19,7 @@
 			Identifiant : 
 		</td>
 		<td>
-			<input type="text" name="login" maxlength="20" size="20" value="">
+			<input type="text" name="login" maxlength="20" size="20" value="david">
 		</td>
 	</tr>
 	<tr>
@@ -27,7 +27,7 @@
 			Mot de Passe : 
 		</td>
 		<td>
-			<input type="password" name="motDePasse" maxlength="20" size="20" value="">
+			<input type="password" name="motDePasse" maxlength="20" size="20" value="david">
 		</td>
 	</tr>
 	<tr>

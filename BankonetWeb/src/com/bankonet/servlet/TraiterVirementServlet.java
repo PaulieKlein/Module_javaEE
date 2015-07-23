@@ -13,7 +13,6 @@ import com.bankonet.model.*;
 import com.bankonet.service.BanqueService;
 import com.bankonet.service.BanqueServiceManager;
 
-import java.lang.*;
 
 /**
  * Servlet implementation class TraiterVirementServlet
@@ -37,6 +36,7 @@ public class TraiterVirementServlet extends HttpServlet {
 		// TODO Auto-generated method stub
     	HttpSession session = request.getSession(false);
 		if(session != null){
+			
 				int compteSr = Integer.parseInt((String) request.getParameter("compteSource"));
 				int compteDes = Integer.parseInt((String) request.getParameter("compteDestination"));
 				float montant = Float.parseFloat((String) request.getParameter("montant"));
@@ -46,18 +46,18 @@ public class TraiterVirementServlet extends HttpServlet {
 				Compte compteDES = client.getCompte(compteDes);
 				
 				 BanqueService banqueService = BanqueServiceManager.getBanqueService();
-				  
 				try {
 					Virement virement = banqueService.effectuerVirement(compteSR, compteDES, montant);
 					session.setAttribute( "virement",virement);
-					response.sendRedirect(request.getContextPath()+"/virementEffectuer.jsp");
+				
+					response.sendRedirect(request.getContextPath()+"/virementEffectue.jsp");
+					
+					response.sendRedirect(request.getContextPath()+"/erreurVirement.jsp");
 				} catch (BankonetException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				 
-							
-						
+								
 				} else {
 		response.sendRedirect(request.getContextPath()+"/login.jsp");
 		}
